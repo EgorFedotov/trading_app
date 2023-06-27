@@ -13,6 +13,9 @@ router = APIRouter(
 )
 
 
+@router.get("/long")
+
+
 @router.get("")
 async def get_specific_operations(
         operation_type: str,

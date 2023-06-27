@@ -2,10 +2,9 @@ from sqlalchemy import (Integer,
                         String,
                         TIMESTAMP,
                         Table,
-                        Column,
-                        MetaData,)
+                        Column,)
+from database import metadata
 
-metadata = MetaData()
 
 operation = Table(
     "operation",

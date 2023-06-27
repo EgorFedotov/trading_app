@@ -1,6 +1,5 @@
 from datetime import datetime
 from sqlalchemy import (Boolean,
-                        MetaData,
                         Integer,
                         String,
                         TIMESTAMP,
@@ -9,12 +8,11 @@ from sqlalchemy import (Boolean,
                         Column,
                         JSON)
 from fastapi_users.db import SQLAlchemyBaseUserTable
-from database import Base
+from database import Base, metadata
 from sqlalchemy.orm import Mapped, mapped_column
 
 
-metadata = MetaData()
-
+# Таблица с ролями пользователя
 role = Table(
     'role',
     metadata,
@@ -23,6 +21,7 @@ role = Table(
     Column("permissions", JSON),
 )
 
+# Таблица пользователя
 user = Table(
     "user",
     metadata,
@@ -39,6 +38,7 @@ user = Table(
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
+    """Переопределенная таблица пользователя, добавил поле role_id """
     id = Column(Integer, primary_key=True)
     email = Column(String, nullable=False, unique=True)
     username = Column(String, nullable=False, unique=True)
