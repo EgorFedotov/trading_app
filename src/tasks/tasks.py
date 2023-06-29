@@ -1,9 +1,14 @@
+import os
 from email.message import EmailMessage
 import smtplib
 from celery import Celery
 
-FASTAPI_USER = 'egorfedotovarz@gmail.com'
-FASTAPI_PASS = 'wfnuhrudtyqkgrck'
+from dotenv import load_dotenv
+
+load_dotenv()
+
+FASTAPI_USER = os.environ.get('FASTAPI_USER')
+FASTAPI_PASS = os.environ.get('FASTAPI_PASS')
 SMTP_HOST = "smtp.gmail.com"
 SMTP_PORT = 465
 
