@@ -6,7 +6,7 @@ from sqlalchemy import insert, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from chat.models import Messages
-# from chat.schemas import MessagesModel
+from chat.schemas import MessagesModel
 from database import async_session_maker, get_async_session
 
 router = APIRouter(
@@ -35,26 +35,26 @@ class ConnectionManager:
         for connection in self.active_connections:
             await connection.send_text(message)
 
-    # @staticmethod
-    # async def add_messages_to_database(message: str):
-    #     async with async_session_maker() as session:
-    #         stmt = insert(Messages).values(
-    #             message=message
-    #         )
-    #         await session.execute(stmt)
-    #         await session.commit()
+    @staticmethod
+    async def add_messages_to_database(message: str):
+        async with async_session_maker() as session:
+            stmt = insert(Messages).values(
+                message=message
+            )
+            await session.execute(stmt)
+            await session.commit()
 
 
 manager = ConnectionManager()
 
 
-# @router.get("/last_messages")
-# async def get_last_messages(
-#         session: AsyncSession = Depends(get_async_session),
-# ) -> List[MessagesModel]:
-#     query = select(Messages).order_by(Messages.id.desc()).limit(5)
-#     messages = await session.execute(query)
-#     return messages.scalars().all()
+@router.get("/last_messages")
+async def get_last_messages(
+        session: AsyncSession = Depends(get_async_session),
+) -> List[MessagesModel]:
+    query = select(Messages).order_by(Messages.id.desc()).limit(5)
+    messages = await session.execute(query)
+    return messages.scalars().all()
 
 
 @router.websocket("/ws/{client_id}")
