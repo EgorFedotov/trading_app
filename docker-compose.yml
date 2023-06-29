@@ -13,10 +13,10 @@ services:
       - 5050
 
   app:
-    image: egorfedotovarz/fastapi:v1
+    image: egorfedotovarz/fastapi:v3
     restart: always
     container_name: fastapi
-    command: ["/fastapi/docker/app.sh"]
+    command: ["/fastapi/src/docker/app.sh"]
     depends_on:
       - redis
       - db
@@ -26,16 +26,16 @@ services:
       - 9999:8000
   
   celery:
-    image: egorfedotovarz/fastapi:v1
-    command: ["/fastapi/docker/celery.sh", "celery"]
+    image: egorfedotovarz/fastapi:v3
+    command: ["/fastapi/src/docker/celery.sh", "celery"]
     env_file:
       - .env-docker
     depends_on:
       - redis
 
   flower:
-    image: egorfedotovarz/fastapi:v1
-    command: ["/fastapi/docker/celery.sh", "flower"]
+    image: egorfedotovarz/fastapi:v3
+    command: ["/fastapi/src/docker/celery.sh", "flower"]
     env_file:
       - .env-docker
     depends_on:
