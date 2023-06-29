@@ -12,6 +12,7 @@ from operations.router import router as router_operation
 from tasks.router import router as router_tasks
 from pages.router import router as router_pages
 from chat.router import router as router_chat
+from config import REDIS_HOST, REDIS_PORT
 
 
 app = FastAPI(
@@ -56,5 +57,5 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def startup():
-    redis = aioredis.from_url("redis://localhost")
+    redis = aioredis.from_url(f"redis://{REDIS_HOST}:{REDIS_PORT}", encoding="utf8", decode_responses=True)
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")

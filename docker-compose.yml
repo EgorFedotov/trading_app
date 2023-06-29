@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+
+  db:
+    image: postgres:15.0-alpine
+    env_file:
+      - .env-docker
+  
+  redis:
+    image: redis:7
+    command: --port 5050
+    expose:
+      - 5050
+
+  app:
+    image: egorfedotovarz/fastapi:v1
+    restart: always
+    container_name: fastapi
+    command: ["/fastapi/docker/app.sh"]
+    depends_on:
+      - redis
+      - db
+    env_file:
+      - .env-docker
+    ports:
+      - 9999:8000
+  
+  celery:
+    image: egorfedotovarz/fastapi:v1
+    command: ["/fastapi/docker/celery.sh", "celery"]
+    env_file:
+      - .env-docker
+    depends_on:
+      - redis
+
+  flower:
+    image: egorfedotovarz/fastapi:v1
+    command: ["/fastapi/docker/celery.sh", "flower"]
+    env_file:
+      - .env-docker
+    depends_on:
+      - redis
+    ports:
+      - 8888:5555
