@@ -1,4 +1,4 @@
-import pytest
+# import pytest
 from sqlalchemy import insert, select
 
 from auth.models import role
