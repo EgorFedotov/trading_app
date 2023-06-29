@@ -23,35 +23,35 @@
 
 В корне проекта создаем файл .env и добавляем туда:
 
-  DB_USER= <имя пользователя бд>
-  DB_PASS= <пароль от бд>
-  DB_HOST= localhost
-  DB_PORT= 5432
-  DB_NAME= <имя бд>
+  -DB_USER= <имя пользователя бд>
+  -DB_PASS= <пароль от бд>
+  -DB_HOST= localhost
+  -DB_PORT= 5432
+  -DB_NAME= <имя бд>
 
-  REDIS_HOST=redis
-  REDIS_PORT=5050
+  -REDIS_HOST=redis
+  -REDIS_PORT=5050
   
-  FASTAPI_USER= <google почту для отправики отчетов >
-  FASTAPI_PASS= <В настройках включить двухфакторную аутентификация, далее в разделе «пароли приложений» добавить приложение и записать пароль>
+  -FASTAPI_USER= <google почту для отправики отчетов >
+  -FASTAPI_PASS= <В настройках включить двухфакторную аутентификация, далее в разделе «пароли приложений» добавить приложение и записать пароль>
 
 Создаем в корне прокта файл .env-docker и добавляем туда:
 
-  DB_USER= <имя пользователя бд>
-  DB_PASS= <пароль от бд>
-  DB_HOST= localhost
-  DB_PORT= 5432
-  DB_NAME= <имя бд>
+  -DB_USER= <имя пользователя бд>
+  -DB_PASS= <пароль от бд>
+  -DB_HOST= localhost
+  -DB_PORT= 5432
+  -DB_NAME= <имя бд>
 
-  POSTGRES_DB=<название БД>
-  POSTGRES_USER=<имя пользователя БД>
-  POSTGRES_PASSWORD=<пароль к БД>
+  -POSTGRES_DB=<название БД>
+  -POSTGRES_USER=<имя пользователя БД>
+  -POSTGRES_PASSWORD=<пароль к БД>
 
-  REDIS_HOST=redis
-  REDIS_PORT=5050
+  -REDIS_HOST=redis
+  -REDIS_PORT=5050
 
-  FASTAPI_USER=egorfedotovarz@gmail.com
-  FASTAPI_PASS=wfnuhrudtyqkgrck
+  -FASTAPI_USER=egorfedotovarz@gmail.com
+  -FASTAPI_PASS=wfnuhrudtyqkgrck
 
 # Для запуска контейнеров в корне проекта выполните команду:
 
