@@ -8,7 +8,7 @@ from sqlalchemy import (Boolean,
                         Column,
                         JSON)
 from fastapi_users.db import SQLAlchemyBaseUserTable
-from src.database import Base, metadata
+from database import Base, metadata
 from sqlalchemy.orm import Mapped, mapped_column
 
 

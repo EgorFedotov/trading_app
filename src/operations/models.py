@@ -4,7 +4,7 @@ from sqlalchemy import (Integer,
                         Table,
                         Column)
 
-from src.database import metadata
+from database import metadata
 
 operation = Table(
     "operation",
