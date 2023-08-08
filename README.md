@@ -21,6 +21,18 @@
   git clone git@github.com:EgorFedotov/trading_app.git
 ```
 
+Устанавливаем и активируем виртуальное окружение
+
+```bash
+  py -3.7 -m venv venv
+  source venv/Scripts/activate
+```
+
+Устанавливаем зависимости из файла requirements.txt
+```bash
+  pip install -r requirements.txt
+```
+
 В корне проекта создаем файл .env и добавляем туда:
 
 - DB_USER= <имя пользователя бд>
