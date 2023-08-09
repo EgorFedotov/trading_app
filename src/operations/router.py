@@ -6,7 +6,6 @@ from database import get_async_session
 from operations.models import operation
 from operations.schemas import OperationCreate
 
-
 router = APIRouter(
     prefix="/operations",
     tags=["Operations"]
