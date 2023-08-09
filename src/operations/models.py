@@ -6,6 +6,7 @@ from sqlalchemy import (Integer,
 
 from database import metadata
 
+
 operation = Table(
     "operation",
     metadata,
