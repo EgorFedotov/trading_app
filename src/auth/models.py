@@ -1,11 +1,10 @@
 from datetime import datetime
 
+from database import Base, metadata
 from fastapi_users.db import SQLAlchemyBaseUserTable
 from sqlalchemy import (JSON, TIMESTAMP, Boolean, Column, ForeignKey, Integer,
                         String, Table)
 from sqlalchemy.orm import Mapped, mapped_column
-
-from database import Base, metadata
 
 # Таблица с ролями пользователя
 role = Table(
