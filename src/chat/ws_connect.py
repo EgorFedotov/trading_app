@@ -1,6 +1,7 @@
-import aiohttp
-import time
 import asyncio
+import time
+
+import aiohttp
 
 
 async def main():

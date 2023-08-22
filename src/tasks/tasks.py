@@ -1,11 +1,10 @@
 import os
-from email.message import EmailMessage
 import smtplib
+from email.message import EmailMessage
+
 from celery import Celery
-
-from dotenv import load_dotenv
-
 from config import REDIS_HOST, REDIS_PORT
+from dotenv import load_dotenv
 
 load_dotenv()
 

@@ -1,10 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy import insert, select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from database import get_async_session
+from fastapi import APIRouter, Depends, HTTPException
 from operations.models import operation
 from operations.schemas import OperationCreate
+from sqlalchemy import insert, select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(
     prefix="/operations",

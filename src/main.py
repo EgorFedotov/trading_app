@@ -1,16 +1,15 @@
+from auth.base_config import auth_backend, fastapi_users
+from auth.schemas import UserCreate, UserRead
+from chat.router import router as router_chat
+from config import REDIS_HOST, REDIS_PORT
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
-from redis import asyncio as aioredis
-
-from auth.base_config import auth_backend, fastapi_users
-from auth.schemas import UserCreate, UserRead
-from chat.router import router as router_chat
-from config import REDIS_HOST, REDIS_PORT
 from operations.router import router as router_operation
 from pages.router import router as router_pages
+from redis import asyncio as aioredis
 from tasks.router import router as router_tasks
 
 app = FastAPI(

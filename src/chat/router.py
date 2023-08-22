@@ -1,12 +1,11 @@
 from typing import List
 
-from fastapi import APIRouter, WebSocket, WebSocketDisconnect, Depends
-from sqlalchemy import insert, select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from chat.models import Messages
 from chat.schemas import MessagesModel
 from database import async_session_maker, get_async_session
+from fastapi import APIRouter, Depends, WebSocket, WebSocketDisconnect
+from sqlalchemy import insert, select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(
     prefix="/chat",
